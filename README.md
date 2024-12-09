@@ -45,6 +45,10 @@ for the honeypot we picked HoneyUp which works okay with our service, but to be 
 
 - and we needed rustup and cargo which we installed using sudo apt install cargo && sudo apt install rustup
 
+- now we can install honeyup using git clone https://github.com/LogoiLab/honeyup.git
+
+- cargo build –release so we can compile it.
+
 # 4-Attack Tools:
 we needed to install some tools that we might use for attacks and we used the following command
 
