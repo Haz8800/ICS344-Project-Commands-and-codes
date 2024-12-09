@@ -2,11 +2,11 @@
 
 How we did the setup for everything in the project
 
-1-Docker: the reason we wanted to install docker is because we needed to downgrade our apache service to something with known vulnerabilities we used the following commands to install it on the vm.
+# 1-Docker: the reason we wanted to install docker is because we needed to downgrade our apache service to something with known vulnerabilities we used the following commands to install it on the vm.
 -sudo apt-get install -y docker.io
 -sudo systemctl start docker & sudo systemctl enable docker
 -docker –version (to make sure it is correctly installed)
-#2-Apache 2.4.49: after installing docker we need to make a dockerfile with all the files and dependencies will go through the steps we did to set it up correctly
+# 2-Apache 2.4.49: after installing docker we need to make a dockerfile with all the files and dependencies will go through the steps we did to set it up correctly
 -nano DockerFile
 -write in the dockerfile the following (FROM debian:latest
 RUN apt-get update && \
