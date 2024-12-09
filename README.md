@@ -87,4 +87,4 @@ chmod +x splunkd;
 -after finishing that run the command sudo dpkg -i splunk-8.x.x-xxxxxx-linux-2.6-amd64.deb to extract and install it
 
 
-#THAT'S IT
+# THAT'S IT
