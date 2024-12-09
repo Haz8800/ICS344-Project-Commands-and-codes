@@ -4,6 +4,7 @@ How we did the setup for everything in the project
 
  # 1-Docker:
 the reason we wanted to install docker is because we needed to downgrade our apache service to something with known vulnerabilities we used the following commands to install it on the vm.
+
 -sudo apt-get install -y docker.io
 
 -sudo systemctl start docker & sudo systemctl enable docker
