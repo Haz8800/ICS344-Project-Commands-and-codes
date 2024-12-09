@@ -80,3 +80,11 @@ chmod +x splunkd;
 -using kali tools we managed to brute force our apache server using hydra tool with the following code hydra -l admin -P /usr/share/wordlists/rockyou.txt -t 4 192.168.206.129 -s 8080 http-get / 
 
 
+#7- SIEM dashboard (SPLUNK)
+
+-after accessing their website and signing up we obtained this link (wget -O splunk-9.3.2-d8bb32809498-linux-2.6-amd64.deb "https://download.splunk.com/products/splunk/releases/9.3.2/linux/splunk-9.3.2-d8bb32809498-linux-2.6-amd64.deb") you can run this in the terminal in kali linux
+
+-after finishing that run the command sudo dpkg -i splunk-8.x.x-xxxxxx-linux-2.6-amd64.deb to extract and install it
+
+
+#THAT'S IT
